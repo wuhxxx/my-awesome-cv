@@ -8,6 +8,9 @@
 *.out
 *.toc
 
+## fdb_latexmk
+*.fdb_latexmk
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
