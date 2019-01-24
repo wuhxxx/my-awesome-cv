@@ -12,6 +12,7 @@
 *.fdb_latexmk
 
 ## Intermediate documents:
+*.synctex.gz
 *.dvi
 *-converted-to.*
 <<<<<<< HEAD

@@ -398,6 +398,10 @@
 \newcommand{\acvSectionTopSkip}{3mm}
 \newcommand{\acvSectionContentTopSkip}{2.5mm}
 
+% narrow vertical spacing
+\newcommand{\acvSectionTopSkipNarrow}{1mm}
+\newcommand{\acvSectionContentTopSkipNarrow}{-1mm}
+
 
 %-------------------------------------------------------------------------------
 %                Commands for utilities
@@ -683,9 +687,18 @@
 
 % below environments and commands are add by Hongxin Wu for customizaiton
 
+% Define my section for CV
+% Usage: \cvsection{<section-title>}
+\newcommand{\cvmysection}[1]{%
+  \vspace{\acvSectionTopSkipNarrow}
+  % \vspace{\acvSectionTopSkip}
+  \sectionstyle{#1}
+  \phantomsection
+  \color{gray}\vhrulefill{0.9pt}
+}
+
 % Define an environment for cvsimpleedus
 \newenvironment{cvsimpleedus}{%
-  \vspace{\acvSectionContentTopSkip}
   \begin{center}
 }{%
   \end{center}
@@ -693,7 +706,7 @@
 % Define an entry of cv simple education
 % Usage: \cventry{<degree>}{<university>}{<gpa>}{<time>}{<extra info>}
 \newcommand*{\cvsimpledu}[5]{%
-  \vspace{-2.0mm}
+  \vspace{\acvSectionContentTopSkipNarrow}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
@@ -717,6 +730,7 @@
 % Define an entry of cv simple project
 % Usage: \cvsimpleproject{<projectName>}{<description>}
 \newcommand*{\cvsimpleproject}[2]{
+  \vspace{\acvSectionContentTopSkipNarrow}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
@@ -735,12 +749,30 @@
 % Define an entry of cv project
 % Usage: \project{<projectName>}{<github>}{<demo>}{<description>}
 \newcommand*{\cvproject}[4]{
+  \vspace{\acvSectionContentTopSkipNarrow}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
     \entrytitlestyle{#1} & \entrydatestyle{#2} \entrylocationstyle{#3} \\
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}} \\
   \end{tabular*}
+}
+
+
+% Define an environment for cvmyskill
+\newenvironment{cvmyskills}{%
+  \begin{center}
+    \setlength\tabcolsep{1ex}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r L{\textwidth * \real{0.9}}}
+}{%
+    \end{tabular*}
+  \end{center}
+}
+% Define a line of cv information(skill)
+% Usage: \cvmyskill{<type>}{<skillset>}
+\newcommand*{\cvmyskill}[2]{%
+  \skilltypestyle{#1} & \skillsetstyle{#2} \\
 }
 
 
