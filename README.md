@@ -6,6 +6,8 @@
   Awesome CV
 </h1>
 
+## [My Resume](https://github.com/wuhxxx/my-awesome-cv/blob/master/resume.pdf)
+
 ## How to Use
 
 #### Requirements
